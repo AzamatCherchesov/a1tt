@@ -1,11 +1,14 @@
 package com.a1tt.a1tt
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.view.Menu
 import android.view.MenuItem
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.bottomappbar.BottomAppBar
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
@@ -25,6 +28,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         setSupportActionBar(bottom_app_bar)
+        router = Router(this, R.id.fragment_container)
+        router.navigateTo(false, TransactionsListFragment())
 
         val addVisibilityChanged: FloatingActionButton.OnVisibilityChangedListener = object : FloatingActionButton.OnVisibilityChangedListener() {
             override fun onShown(fab: FloatingActionButton?) {
@@ -45,16 +50,16 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        toggle_fab_alignment_button.setOnClickListener {
-            fab.hide(addVisibilityChanged)
-            invalidateOptionsMenu()
-            bottom_app_bar.navigationIcon = if (bottom_app_bar.navigationIcon != null) null
-            else getDrawable(baseline_menu_white_24)
-            when(screen_label.text) {
-                getString(R.string.primary_screen_text) -> screen_label.text = getString(R.string.secondary_sceen_text)
-                getString(R.string.secondary_sceen_text) -> screen_label.text = getString(R.string.primary_screen_text)
-            }
-        }
+//        toggle_fab_alignment_button.setOnClickListener {
+//            fab.hide(addVisibilityChanged)
+//            invalidateOptionsMenu()
+//            bottom_app_bar.navigationIcon = if (bottom_app_bar.navigationIcon != null) null
+//            else getDrawable(baseline_menu_white_24)
+//            when(screen_label.text) {
+//                getString(R.string.primary_screen_text) -> screen_label.text = getString(R.string.secondary_sceen_text)
+//                getString(R.string.secondary_sceen_text) -> screen_label.text = getString(R.string.primary_screen_text)
+//            }
+//        }
 
         fab.setOnClickListener {
             displayMaterialSnackBar()
@@ -120,6 +125,9 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
+    companion object {
+        lateinit var router: Router
+    }
 
 }
 
