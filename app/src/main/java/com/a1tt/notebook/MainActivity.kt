@@ -1,22 +1,20 @@
-package com.a1tt.a1tt
+package com.a1tt.notebook
 
-import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
 import android.view.Menu
 import android.view.MenuItem
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.bottomappbar.BottomAppBar
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.content_main.*
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
-import com.a1tt.a1tt.R.drawable.*
-import com.a1tt.a1tt.R.menu.bottomappbar_menu_primary
-import com.a1tt.a1tt.R.menu.bottomappbar_menu_secondary
+import com.a1tt.notebook.R.drawable.*
+import com.a1tt.notebook.R.menu.bottomappbar_menu_primary
+import com.a1tt.notebook.R.menu.bottomappbar_menu_secondary
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.content_main.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -61,18 +59,18 @@ class MainActivity : AppCompatActivity() {
 //            }
 //        }
 
-        fab.setOnClickListener {
-            displayMaterialSnackBar()
-        }
+//        fab.setOnClickListener {
+//            displayMaterialSnackBar()
+//        }
 
-//        coordinatorLayout2.setOnTouchListener(
-//            object: OnSwipeTouchListener(this){
-//                override fun onSwipeTop() {
-//                    val bottomNavDrawerFragment = A()
-//                    bottomNavDrawerFragment.show(supportFragmentManager, bottomNavDrawerFragment.tag)
-//                }
-//            }
-//        )
+        fab.setOnTouchListener(
+            object: OnSwipeTouchListener(this){
+                override fun onSwipeTop() {
+                    val bottomNavDrawerFragment = A()
+                    bottomNavDrawerFragment.show(supportFragmentManager, bottomNavDrawerFragment.tag)
+                }
+            }
+        )
 
     }
 
@@ -93,7 +91,7 @@ class MainActivity : AppCompatActivity() {
         // Changing message text color
         snackbar.setActionTextColor(ContextCompat.getColor(this, R.color.colorSnackbarButton))
 
-        snackbar.anchorView = fab
+        snackbar.anchorView = findViewById(R.id.fab)
 
 //        val snackbarView = snackbar.view
 //        val params = snackbarView.layoutParams as CoordinatorLayout.LayoutParams

@@ -1,6 +1,5 @@
-package com.a1tt.a1tt
+package com.a1tt.notebook
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
@@ -8,8 +7,8 @@ import android.view.View
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
-import com.a1tt.a1tt.MainApplication.Companion.countDownTimer
-import com.a1tt.a1tt.MainApplication.Companion.timerCounter
+import com.a1tt.notebook.MainApplication.Companion.countDownTimer
+import com.a1tt.notebook.MainApplication.Companion.timerCounter
 
 class SplashScreenActivity : AppCompatActivity() {
 

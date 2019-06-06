@@ -1,9 +1,8 @@
-package com.a1tt.a1tt
+package com.a1tt.notebook
 
 import android.app.Application
 import android.graphics.Bitmap
 import android.os.CountDownTimer
-import java.util.concurrent.Executors
 
 class MainApplication :Application(){
     override fun onCreate() {

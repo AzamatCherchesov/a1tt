@@ -1,4 +1,4 @@
-package com.a1tt.a1tt;
+package com.a1tt.notebook;
 
 import android.content.Context;
 import android.view.GestureDetector;

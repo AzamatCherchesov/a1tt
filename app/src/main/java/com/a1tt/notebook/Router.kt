@@ -1,4 +1,4 @@
-package com.a1tt.a1tt
+package com.a1tt.notebook
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
