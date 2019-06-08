@@ -9,6 +9,7 @@ import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.a1tt.notebook.MainApplication.Companion.countDownTimer
 import com.a1tt.notebook.MainApplication.Companion.timerCounter
+import com.a1tt.notebook.tutorial.TutorialActivity
 
 class SplashScreenActivity : AppCompatActivity() {
 
@@ -57,7 +58,7 @@ class SplashScreenActivity : AppCompatActivity() {
     }
 
     fun onTimer() {
-        val intent = Intent(this, MainActivity::class.java)
+        val intent = Intent(this, TutorialActivity::class.java)
         startActivity(intent)
         finish()
     }
