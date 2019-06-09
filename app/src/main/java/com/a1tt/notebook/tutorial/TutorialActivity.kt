@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
 import com.a1tt.notebook.MainActivity
 import com.a1tt.notebook.R
+import com.a1tt.notebook.customView.PageIndicatorView
+import com.a1tt.notebook.customView.animation.type.AnimationType
 import java.util.ArrayList
 
 class TutorialActivity: AppCompatActivity() {
@@ -16,6 +18,7 @@ class TutorialActivity: AppCompatActivity() {
     var pager: ViewPager? = null
     var nextButton: ImageButton? = null
     var prevButton: ImageButton? = null
+    var pageIndicatorView: PageIndicatorView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,6 +47,11 @@ class TutorialActivity: AppCompatActivity() {
                 pager!!.setCurrentItem(pager!!.currentItem - 1, true)
             }
         }
+
+        pageIndicatorView = findViewById(R.id.pageIndicatorView)
+        pageIndicatorView?.setFadeOnIdle(true)
+        pageIndicatorView?.setInteractiveAnimation(true)
+        pageIndicatorView?.setAnimationType(AnimationType.SCALE)
     }
 
     private fun initViews() {
